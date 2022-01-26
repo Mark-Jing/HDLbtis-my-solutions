@@ -4,8 +4,8 @@ module top_module (
     output OneHertz,
     output [2:0] c_enable
 ); //
-    wire one,ten,hun;
-    assign c_enable={ten==4'b1001&&one==4'b1001,one==4'b1001,4'b0001};
+    wire[3:0] one,ten,hun;
+    assign c_enable={ten==4'd9&&one==4'd9,one==4'd9,1'b1};
     assign OneHertz= one==4'd9&&ten==4'd9&&hun==4'd9;
     bcdcount counter0 (clk, reset, c_enable[0], one);
     bcdcount counter1 (clk, reset, c_enable[1], ten);
